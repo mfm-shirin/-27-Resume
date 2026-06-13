@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maruf Fatema Mansuri — Cybersecurity Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F1115;
+    --paper: #F7F8FA;
+    --panel: #FFFFFF;
+    --accent: #3B5BDB;
+    --accent-soft: #EAEEFD;
+    --muted: #5C6470;
+    --hairline: #E2E5EA;
+    --ok: #16A37A;
+    --ok-soft: #E4F6EF;
+    --warn: #B7791F;
+    --warn-soft: #FCF2E2;
+
+    --display: "Space Grotesk", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+    --body: "Inter", sans-serif;
+
+    --sidebar-w: 260px;
+    --max-w: 880px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Layout shell ---------- */
+  .shell {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    padding: 40px 28px;
+    border-right: 1px solid var(--hairline);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .brand {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin: 0 0 4px;
+  }
+
+  .brand-sub {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .status-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ok);
+    margin-bottom: 32px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 3px var(--ok-soft);
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  nav a {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    color: var(--ink);
+    font-size: 0.92rem;
+    padding: 7px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  nav a:hover { background: var(--accent-soft); color: var(--accent); }
+  nav a .id {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    flex-shrink: 0;
+    width: 2.4em;
+  }
+
+  .sidebar-footer {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.88rem;
+  }
+  .sidebar-footer a { color: var(--ink); }
+  .sidebar-footer a:hover { color: var(--accent); }
+
+  /* ---------- Main content ---------- */
+  main {
+    flex: 1;
+    min-width: 0;
+    padding: 56px 40px 100px;
+  }
+  .container { max-width: var(--max-w); margin: 0 auto; }
+
+  section { margin-bottom: 72px; }
+  section:first-of-type { margin-top: 0; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+    line-height: 1.12;
+    margin: 0 0 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0 0 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  p { margin: 0 0 14px; color: var(--ink); }
+  .lede { font-size: 1.08rem; color: var(--muted); max-width: 620px; }
+
+  /* ---------- Hero ---------- */
+  .hero { margin-bottom: 64px; }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 26px;
+  }
+  .hero-meta span { white-space: nowrap; }
+  .hero-meta strong { color: var(--ink); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    padding: 11px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn.primary:hover { background: #2f4bc4; border-color: #2f4bc4; }
+
+  /* ---------- Skills ---------- */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .skill-group h3 {
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 5px 11px;
+    border: 1px solid var(--hairline);
+    border-radius: 5px;
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  /* ---------- Report cards (projects) ---------- */
+  .report-card {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--panel);
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  .report-card:last-child { margin-bottom: 0; }
+
+  .report-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .report-head .title-block { flex: 1; min-width: 200px; }
+  .report-head .links {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .badge {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .badge.live { background: var(--ok-soft); color: var(--ok); }
+  .badge.ongoing { background: var(--warn-soft); color: var(--warn); }
+  .badge.complete { background: var(--accent-soft); color: var(--accent); }
+
+  .report-meta {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .report-card ul {
+    margin: 0;
+    padding-left: 1.3em;
+  }
+  .report-card li { margin-bottom: 6px; color: var(--ink); }
+  .report-card li:last-child { margin-bottom: 0; }
+
+  .stack-row {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--hairline);
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--muted);
+  }
+  .stack-row strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline {
+    border-left: 1px solid var(--hairline);
+    margin-left: 6px;
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 32px 28px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--accent);
+  }
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .timeline-org { color: var(--muted); font-size: 0.92rem; margin: 2px 0 8px; }
+  .timeline-item ul { margin: 0; padding-left: 1.3em; }
+  .timeline-item li { margin-bottom: 5px; }
+
+  /* ---------- Certificates ---------- */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+  }
+  .cert-card {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+  }
+  .cert-thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--accent-soft);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cert-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .cert-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
+  .cert-body h3 { font-size: 0.92rem; margin-bottom: 6px; }
+  .cert-meta {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .cert-links {
+    margin-top: auto;
+    display: flex;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+  }
+
+  /* ---------- Hackathons ---------- */
+  .hack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .hack-card {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 22px 24px;
+    background: var(--panel);
+  }
+  .hack-card .timeline-date { margin-bottom: 8px; }
+  .hack-card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 0; }
+  .hack-code {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--hairline);
+  }
+
+  /* ---------- Writing ---------- */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.post-card {
+  display: block;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 22px 24px;
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.post-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(59, 91, 219, 0.08);
+  text-decoration: none;
+}
+.post-card h3 { margin-bottom: 8px; }
+.post-excerpt {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 14px;
+}
+.post-link {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .contact-card {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 18px 20px;
+    background: var(--panel);
+  }
+  .contact-card .eyebrow { margin-bottom: 8px; }
+  .contact-card a { font-family: var(--mono); font-size: 0.9rem; word-break: break-word; }
+
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding-top: 24px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ---------- Mobile nav ---------- */
+  .mobile-bar {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+    padding: 16px 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-bar .brand { font-size: 1.05rem; margin: 0; }
+  .mobile-bar .status-line { margin: 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .skill-grid { grid-template-columns: 1fr; }
+    .hack-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 760px) {
+    .sidebar { display: none; }
+    .mobile-bar { display: flex; }
+    main { padding: 32px 20px 80px; }
+    .report-head { flex-direction: column; }
+    .report-head .links { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Mobile top bar -->
+  <div class="mobile-bar">
+    <p class="brand">Maruf Fatema Mansuri</p>
+    <div class="status-line"><span class="status-dot"></span>Student</div>
+  </div>
+
+  <div class="shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <p class="brand">Maruf Fatema Mansuri</p>
+      <p class="brand-sub">B.Tech CSE (Cyber Security)<br>Silver Oak University</p>
+
+      <div class="status-line"><span class="status-dot"></span>open to internships &amp; roles</div>
+
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="#about"><span class="id">00</span>About</a></li>
+          <li><a href="#skills"><span class="id">01</span>Skills</a></li>
+          <li><a href="#experience"><span class="id">02</span>Experience</a></li>
+          <li><a href="#projects"><span class="id">03</span>Projects</a></li>
+          <li><a href="#certifications"><span class="id">04</span>Certifications</a></li>
+          <li><a href="#hackathons"><span class="id">05</span>Hackathons</a></li>
+          <li><a href="#writing"><span class="id">06</span>Writing</a></li>
+          <li><a href="#contact"><span class="id">06</span>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="https://github.com/mfm-shirin" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://medium.com/@mmaruffatema" target="_blank" rel="noopener">Medium ↗</a>
+        <a href="https://www.linkedin.com/in/maruf-fatema-mansuri-940099321/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+      <div class="container">
+
+        <!-- About -->
+        <section id="about" class="hero">
+          <p class="eyebrow">SEC-00 / Profile</p>
+          <h1>Cybersecurity student</h1>
+          <p class="lede">
+            3rd year B.Tech Computer Science &amp; Engineering (Cyber Security) student at Silver Oak University,
+            Ahmedabad. Hands-on experience with vulnerability assessment, penetration testing fundamentals,
+            directory enumeration and security reporting, alongside IEEE leadership and AI-focused project work.
+          </p>
+          <div class="hero-meta">
+            <span><strong>Location</strong> — Ahmedabad, Gujarat, India</span>
+            <span><strong>CGPA</strong> — 9.38 / 10.0</span>
+            <span><strong>Focus</strong> — VAPT · Network Security · AI Safety</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:mmaruffatema@gmail.com">Email Me</a>
+            <a class="btn" href="../resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn" href="https://github.com/mfm-shirin" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+          <h2>Skills &amp; Tools</h2>
+          <div class="skill-grid">
+            <div class="skill-group">
+              <h3>Cybersecurity</h3>
+              <div class="tag-row">
+                <span class="tag">Network Security</span>
+                <span class="tag">Threat Detection</span>
+                <span class="tag">Risk Assessment</span>
+                <span class="tag">Vulnerability Analysis</span>
+                <span class="tag">Penetration Testing</span>
+                <span class="tag">Directory Enumeration</span>
+                <span class="tag">Broken Access Control</span>
+                <span class="tag">Secure Systems Design</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>Tools</h3>
+              <div class="tag-row">
+                <span class="tag">Kali Linux</span>
+                <span class="tag">Wireshark</span>
+                <span class="tag">Nmap</span>
+                <span class="tag">Gobuster</span>
+                <span class="tag">WhatWeb</span>
+                <span class="tag">Burp Suite</span>
+                <span class="tag">Metasploit</span>
+                <span class="tag">Splunk</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>Programming &amp; AI</h3>
+              <div class="tag-row">
+                <span class="tag">Python</span>
+                <span class="tag">Prompt Engineering</span>
+                <span class="tag">LLM Behaviour Analysis</span>
+                <span class="tag">Adversarial AI</span>
+                <span class="tag">Prompt Injection Analysis</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>Platforms</h3>
+              <div class="tag-row">
+                <span class="tag">Linux (Red Hat Certified)</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">TryHackMe</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+          <h2>Experience</h2>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <span class="timeline-date">2026 — Present</span>
+              <h3>Cybersecurity Intern</h3>
+              <p class="lede">Internship — security testing &amp; reconnaissance training</p>
+              <ul>
+                <li>Performed hands-on security testing and reconnaissance in an authorised lab environment as part of internship training.</li>
+                <li>Conducted directory enumeration and web reconnaissance using Gobuster and WhatWeb on assigned targets, including an AWS-hosted lab application and an internal timesheet application.</li>
+                <li>Identified a Broken Access Control vulnerability (OWASP Top 10 #1) by discovering a hardcoded Google Apps Script API endpoint in the timesheet app's frontend source, exposing multiple unauthenticated API actions.</li>
+                <li>Documented findings in a structured vulnerability report covering reproduction steps, impact analysis and remediation recommendations.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">April 2026 — Present</span>
+              <h3>Secretary</h3>
+              <p class="lede">Silver Oak University IEEE Signal Processing Society Student Branch Chapter</p>
+              <ul>
+                <li>Leading AI-focused technical initiatives including hackathons, prompt engineering challenges and research events.</li>
+                <li>Managing end-to-end documentation, communication workflows and event execution for the chapter.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">January 2026 — March 2026</span>
+              <h3>Secretary</h3>
+              <p class="lede">Silver Oak University IEEE Women in Engineering Student Branch Affinity Group</p>
+              <ul>
+                <li>Led chapter operations, strategic planning and execution of technical and community initiatives.</li>
+                <li>Coordinated across executive and core committee teams to drive collaboration and outreach.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">May 2025 — December 2025</span>
+              <h3>Content Vice Chair</h3>
+              <p class="lede">IEEE Committees</p>
+              <ul>
+                <li>Created AI-assisted content workflows for social media, event storytelling and technical reports.</li>
+                <li>Developed structured prompt frameworks for consistent, high-quality content output.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">July 2025</span>
+              <h3>Web Development Intern</h3>
+              <p class="lede">LinkVerse</p>
+              <ul>
+                <li>Delivered web development projects with focus on product thinking and execution workflows.</li>
+                <li>Built and presented project frameworks demonstrating end-to-end development lifecycle.</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+          <h2>Projects</h2>
+
+          <div class="report-card">
+            <div class="report-head">
+              <div class="title-block">
+                <h3>Fire.AI — AI-Based Wildfire Threat Detection System</h3>
+              </div>
+              <div class="links">
+                <a href="https://v0-fire-eye-wildfire-app.vercel.app/" target="_blank" rel="noopener">Live Demo ↗</a>
+              </div>
+            </div>
+            <div class="report-meta">
+              <span><span class="badge live">LIVE</span></span>
+              <span>B.Tech 2nd Year IDT Project</span>
+            </div>
+            <ul>
+              <li>Developed an AI-powered wildfire detection and monitoring system integrating environmental sensor, satellite and weather data for early risk assessment.</li>
+              <li>Leveraged machine learning techniques to analyse fire patterns and support real-time threat prediction.</li>
+              <li>Contributed to system architecture, alert generation and risk identification workflows within an interdisciplinary team.</li>
+              <li>Built a live dashboard providing real-time monitoring, location tracking and emergency notifications.</li>
+            </ul>
+            <div class="stack-row">
+              <strong>Stack:</strong> Python · TensorFlow · OpenCV · React/Next.js · Vercel · NASA FIRMS API · Open-Meteo
+            </div>
+          </div>
+
+          <div class="report-card">
+            <div class="report-head">
+              <div class="title-block">
+                <h3>Web Application Penetration Testing Report — Internal Timesheet Application</h3>
+              </div>
+            </div>
+            <div class="report-meta">
+              <span><span class="badge complete">FINDING DOCUMENTED</span></span>
+              <span>Cybersecurity Internship Task</span>
+            </div>
+            <ul>
+              <li>Performed reconnaissance and vulnerability assessment on an internal organisational web application as part of an authorised internship security assessment.</li>
+              <li>Used directory enumeration tools (Gobuster, WhatWeb) to map application structure and identify exposed endpoints.</li>
+              <li>Discovered a hardcoded Google Apps Script API URL within the frontend source code, exposing unauthenticated API actions and confirming a Broken Access Control vulnerability (OWASP Top 10 #1).</li>
+              <li>Prepared a vulnerability report detailing findings, risk impact and remediation steps for the development team.</li>
+            </ul>
+            <div class="stack-row">
+              <strong>Tools:</strong> Gobuster · WhatWeb · Kali Linux · Burp Suite
+            </div>
+          </div>
+
+          <div class="report-card">
+            <div class="report-head">
+              <div class="title-block">
+                <h3>Pixel-Based Cybersecurity Awareness Game</h3>
+              </div>
+            </div>
+            <div class="report-meta">
+              <span><span class="badge ongoing">ONGOING</span></span>
+              <span>Team Project</span>
+            </div>
+            <ul>
+              <li>Developing a story-driven pixel-art game in a team to teach cybersecurity concepts through gamified missions and security challenges.</li>
+              <li>Designing mission logic around real-world attack scenarios including phishing, social engineering and network intrusion.</li>
+              <li>Focused on making security education accessible and engaging for non-technical users.</li>
+            </ul>
+          </div>
+
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+          <h2>Certifications</h2>
+          <div class="cert-grid">
+
+            <div class="cert-card">
+              <div class="cert-thumb">
+                <img src="assets/certs/redhat-1.png" alt="Red Hat Training Getting Started with Linux Fundamentals certificate" loading="lazy">
+              </div>
+              <div class="cert-body">
+                <h3>Getting Started with Linux Fundamentals (RH104)</h3>
+                <p class="cert-meta">Red Hat, Inc. · 16 Credit Hours · Sept 2025</p>
+                <div class="cert-links">
+                  <a href="assets/certs/redhat.pdf" target="_blank" rel="noopener">View PDF</a>
+                  <a href="https://www.credly.com/badges/06920210-3dda-474c-a0ae-10472651f869" target="_blank" rel="noopener">Verify on Credly</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">
+                <img src="assets/certs/splunk_intro-1.png" alt="Intro to Splunk eLearning certificate" loading="lazy">
+              </div>
+              <div class="cert-body">
+                <h3>Intro to Splunk (eLearning)</h3>
+                <p class="cert-meta">Splunk · 1 Credit Hour · May 2026</p>
+                <div class="cert-links">
+                  <a href="assets/certs/splunk_intro.pdf" target="_blank" rel="noopener">View PDF</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">
+                <img src="assets/certs/splunk_enterprise-1.png" alt="Splunk Enterprise Installation and Configuration certificate" loading="lazy">
+              </div>
+              <div class="cert-body">
+                <h3>Splunk Enterprise Installation &amp; Configuration (eLearning)</h3>
+                <p class="cert-meta">Splunk · 1 Credit Hour · May 2026</p>
+                <div class="cert-links">
+                  <a href="assets/certs/splunk_enterprise.pdf" target="_blank" rel="noopener">View PDF</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Hackathons -->
+        <section id="hackathons">
+          <h2>Hackathons &amp; Competitions</h2>
+          <div class="hack-grid">
+
+            <div class="hack-card">
+              <span class="timeline-date">2025</span>
+              <h3>Bharatiya Antariksh Hackathon 2025</h3>
+              <p>ISRO (Indian Space Research Organisation), powered by Hack2Skill. Successfully submitted an idea addressing real-world space and technology challenges; recognised for innovation, curiosity and commitment to advancing India's space ecosystem.</p>
+              <div class="hack-code">
+                Certificate Code: 2025H2S06BAH25-P26041
+                <div class="cert-links" style="margin-top:10px;">
+                  <a href="assets/certs/isro.pdf" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hack-card">
+              <span class="timeline-date">2025</span>
+              <h3>Zomathon — The Data Hackathon</h3>
+              <p>Coding Ninjas × Eternal (Zomato). Actively participated, demonstrating analytical thinking, collaborative problem-solving and data-driven decision making on real-world business data challenges.</p>
+              <div class="hack-code">
+                <div class="cert-links">
+                  <a href="assets/certs/zomathon.pdf" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Writing -->
+<section id="writing">
+  <h2>Writing</h2>
+  <div class="post-grid">
+
+    <a class="post-card" href="https://medium.com/@mmaruffatema/the-lock-that-lies-6582e366d311" target="_blank" rel="noopener">
+      <div class="post-body">
+        <p class="cert-meta">Apr 2026 · 5 min read · Medium</p>
+        <h3>The Lock That Lies</h3>
+        <p class="post-excerpt">What does the padlock icon in your browser actually mean? A look at HTTPS, the CIA triad, why most phishing sites now show a "secure" lock, and how Google's tune icon is reshaping how we think about online trust.</p>
+        <span class="post-link">Read on Medium ↗</span>
+      </div>
+    </a>
+
+  </div>
+  <p style="margin-top: 18px;">
+    <a href="https://medium.com/@mmaruffatema" target="_blank" rel="noopener">More posts on Medium ↗</a>
+  </p>
+</section>
+
+        <!-- Contact -->
+        <section id="contact">
+          <h2>Contact</h2>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <p class="eyebrow">Email</p>
+              <a href="mailto:mmaruffatema@gmail.com">mmaruffatema@gmail.com</a>
+            </div>
+            <div class="contact-card">
+              <p class="eyebrow">Phone</p>
+              <a href="tel:+916260690038">+91 6260690038</a>
+            </div>
+            <div class="contact-card">
+              <p class="eyebrow">LinkedIn</p>
+              <a href="https://www.linkedin.com/in/maruf-fatema-mansuri-940099321/" target="_blank" rel="noopener">linkedin.com/in/maruf-fatema-mansuri</a>
+            </div>
+            <div class="contact-card">
+              <p class="eyebrow">GitHub</p>
+              <a href="https://github.com/mfm-shirin" target="_blank" rel="noopener">github.com/mfm-shirin</a>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          © 2026 Maruf Fatema Mansuri. Built with HTML &amp; CSS.
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
