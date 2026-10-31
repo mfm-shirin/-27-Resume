@@ -376,6 +376,7 @@
     object-position: top;
     display: block;
   }
+  
   .cert-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; }
   .cert-body h3 { font-size: 0.92rem; margin-bottom: 6px; }
   .cert-meta {
@@ -527,7 +528,7 @@
           <li><a href="#skills"><span class="id">01</span>Skills</a></li>
           <li><a href="#experience"><span class="id">02</span>Experience</a></li>
           <li><a href="#projects"><span class="id">03</span>Projects</a></li>
-          <li><a href="#certifications"><span class="id">04</span>Certifications</a></li>
+          <li><a href="#forensics"><span class="id">04</span>Forensics Practical</a></li>
           <li><a href="#hackathons"><span class="id">05</span>Hackathons</a></li>
           <li><a href="#writing"><span class="id">06</span>Writing</a></li>
           <li><a href="#contact"><span class="id">06</span>Contact</a></li>
@@ -551,14 +552,17 @@
           <p class="eyebrow">SEC-00 / Profile</p>
           <h1>Cybersecurity student</h1>
           <p class="lede">
-            3rd year B.Tech Computer Science &amp; Engineering (Cyber Security) student at Silver Oak University,
-            Ahmedabad. Hands-on experience with vulnerability assessment, penetration testing fundamentals,
-            directory enumeration and security reporting, alongside IEEE leadership and AI-focused project work.
+             3rd year B.Tech Computer Science &amp; Engineering (Cyber Security) student at Silver Oak University,
+            Ahmedabad. Practical exposure to cybersecurity assessment, vulnerability analysis, network security
+            and digital forensics. Experienced in authorised security testing, documenting vulnerabilities and
+            developing security-focused applications. Currently exploring Digital Forensics and Incident Response
+            through projects such as DFIR Analyzer, alongside academic work involving forensic investigation
+            tools and evidence analysis.
           </p>
           <div class="hero-meta">
             <span><strong>Location</strong> — Ahmedabad, Gujarat, India</span>
             <span><strong>CGPA</strong> — 9.38 / 10.0</span>
-            <span><strong>Focus</strong> — VAPT · Network Security · AI Safety</span>
+            <span><strong>Focus</strong> — Digital Forensics · Incident Response · Cybersecurity · VAPT</span>
           </div>
           <div class="hero-actions">
             <a class="btn primary" href="mailto:mmaruffatema@gmail.com">Email Me</a>
@@ -570,22 +574,38 @@
         <!-- Skills -->
         <section id="skills">
           <h2>Skills &amp; Tools</h2>
+
           <div class="skill-grid">
+
             <div class="skill-group">
               <h3>Cybersecurity</h3>
               <div class="tag-row">
                 <span class="tag">Network Security</span>
+                <span class="tag">Vulnerability Assessment</span>
+                <span class="tag">Penetration Testing</span>
                 <span class="tag">Threat Detection</span>
                 <span class="tag">Risk Assessment</span>
-                <span class="tag">Vulnerability Analysis</span>
-                <span class="tag">Penetration Testing</span>
                 <span class="tag">Directory Enumeration</span>
                 <span class="tag">Broken Access Control</span>
-                <span class="tag">Secure Systems Design</span>
+                <span class="tag">Web Reconnaissance</span>
               </div>
             </div>
+
             <div class="skill-group">
-              <h3>Tools</h3>
+              <h3>Digital Forensics</h3>
+              <div class="tag-row">
+                <span class="tag">Autopsy (Academic)</span>
+                <span class="tag">Digital Evidence Analysis</span>
+                <span class="tag">File Metadata Analysis</span>
+                <span class="tag">Timeline Examination</span>
+                <span class="tag">SHA-256 Hashing</span>
+                <span class="tag">Evidence Integrity</span>
+                <span class="tag">Forensic Reporting</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h3>Security Tools</h3>
               <div class="tag-row">
                 <span class="tag">Kali Linux</span>
                 <span class="tag">Wireshark</span>
@@ -595,28 +615,45 @@
                 <span class="tag">Burp Suite</span>
                 <span class="tag">Metasploit</span>
                 <span class="tag">Splunk</span>
+                <span class="tag">7-Zip</span>
               </div>
             </div>
+
             <div class="skill-group">
-              <h3>Programming &amp; AI</h3>
+              <h3>Programming &amp; Development</h3>
               <div class="tag-row">
                 <span class="tag">Python</span>
+                <span class="tag">Java</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">React</span>
+                <span class="tag">Next.js</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h3>AI &amp; Emerging Technology</h3>
+              <div class="tag-row">
                 <span class="tag">Prompt Engineering</span>
                 <span class="tag">LLM Behaviour Analysis</span>
                 <span class="tag">Adversarial AI</span>
                 <span class="tag">Prompt Injection Analysis</span>
               </div>
             </div>
+
             <div class="skill-group">
-              <h3>Platforms</h3>
+              <h3>Platforms &amp; Environments</h3>
               <div class="tag-row">
-                <span class="tag">Linux (Red Hat Certified)</span>
+                <span class="tag">Linux (Red Hat Training)</span>
                 <span class="tag">GitHub</span>
                 <span class="tag">TryHackMe</span>
               </div>
             </div>
+
           </div>
         </section>
+
 
         <!-- Experience -->
         <section id="experience">
@@ -690,10 +727,10 @@
               <h3>DFIR Analyzer — Digital Forensics and Incident Response Tool</h3>
             </div>
             <div class="links">
-              <a href="https://github.com/mfm-shirin"
+              <a href="https://github.com/mfm-shirin/DFIR-Analyzer"
                 target="_blank" rel="noopener">Live Demo ↗</a>
             </div>
-          </div>
+          </div>  
 
           <div class="report-meta">
             <span><span class="badge complete">PROTOTYPE</span></span>
@@ -711,6 +748,35 @@
           </div>
         </div>
 
+        <!-- CASE ZERO -->
+        <div class="report-card">
+          <div class="report-head">
+            <div class="title-block">
+              <h3>CASE ZERO: The 11:47 Incident</h3>
+            </div>
+            <div class="links">
+              <a href="https://github.com/mfm-shirin/case-zero-1147-incident"
+                target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+
+          <div class="report-meta">
+            <span><span class="badge complete">PROTOTYPE</span></span>
+            <span>Interactive Digital Forensics Investigation Game</span>
+          </div>
+
+          <ul>
+            <li>Developed an interactive investigation game based on a fictional cybersecurity incident.</li>
+            <li>Designed investigation workflows involving digital evidence examination, timeline reconstruction and suspect interrogation.</li>
+            <li>Created gameplay focused on correlating digital clues and introducing forensic investigation concepts.</li>
+          </ul>
+
+          <div class="stack-row">
+            <strong>Stack:</strong> Next.js · TypeScript · Tailwind CSS
+          </div>
+        </div>
+
+
         <!-- Fraud Ring Detector -->
         <div class="report-card">
           <div class="report-head">
@@ -718,7 +784,7 @@
               <h3>Fraud Ring Detector — Fraud Monitoring Application</h3>
             </div>
             <div class="links">
-              <a href="https://github.com/mfm-shirin"
+              <a href="https://github.com/mfm-shirin/fraud-ring-detector"
                 target="_blank" rel="noopener">Live Demo ↗</a>
             </div>
           </div>
@@ -804,6 +870,36 @@
 
         </section>
 
+        <!-- Academic Digital Forensics -->
+        <section id="forensics">
+          <h2>Academic Practical Experience</h2>
+
+          <div class="report-card">
+            <div class="report-head">
+              <div class="title-block">
+                <h3>Digital Forensic Examination using Autopsy</h3>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span><span class="badge complete">ACADEMIC PRACTICAL</span></span>
+              <span>Digital Forensics and Investigation</span>
+            </div>
+
+            <ul>
+              <li>Used Autopsy to examine a digital forensic investigation dataset as part of academic practical work.</li>
+              <li>Worked with the DFRWS 2011 Challenge dataset (Case1.tgz) for introductory digital forensic examination.</li>
+              <li>Used 7-Zip to extract and inspect the supplied archive.</li>
+              <li>Explored available file metadata and timestamps during evidence examination.</li>
+            </ul>
+
+            <div class="stack-row">
+              <strong>Tools:</strong> Autopsy · 7-Zip
+            </div>
+          </div>
+        </section>
+
+
         <!-- Certifications -->
         <section id="certifications">
           <h2>Certifications</h2>
@@ -825,7 +921,7 @@
 
             <div class="cert-card">
               <div class="cert-thumb">
-                <img src="assets/certs/splunk_intro-1.png" alt="Intro to Splunk eLearning certificate" loading="lazy">
+                <img src="assets/certs/splunk_intro-1.jpg" alt="Intro to Splunk eLearning certificate" loading="lazy">
               </div>
               <div class="cert-body">
                 <h3>Intro to Splunk (eLearning)</h3>
@@ -838,7 +934,7 @@
 
             <div class="cert-card">
               <div class="cert-thumb">
-                <img src="assets/certs/splunk_enterprise-1.png" alt="Splunk Enterprise Installation and Configuration certificate" loading="lazy">
+                <img src="assets/certs/splunk_enterprise-1.jpg" alt="Splunk Enterprise Installation and Configuration certificate" loading="lazy">
               </div>
               <div class="cert-body">
                 <h3>Splunk Enterprise Installation &amp; Configuration (eLearning)</h3>
